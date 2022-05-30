@@ -18,13 +18,13 @@ classes = {"amenities": Amenity,
            "users": User}
 
 
-@app_views.route('/status', methods=['GET'], strict_slashes=False)
+@app_views.route('/status', methods=['GET'])
 def status():
     """ view status """
     return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats', methods=['GET'], strict_slashes=False)
+@app_views.route('/stats', methods=['GET'])
 def cls_stats():
     """ view stats (count) for classes """
     cls_dict = {}
