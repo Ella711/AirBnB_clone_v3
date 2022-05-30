@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" module to run flask app """
 from api.v1.views import app_views
 from flask import Flask
 from models import storage
@@ -12,6 +13,7 @@ app.register_blueprint(app_views)
 
 
 def port_host(HBNB_API_HOST, HBNB_API_PORT):
+    """ set up host and port variables """
     if not HBNB_API_HOST:
         HBNB_API_HOST = '0.0.0.0'
     if not HBNB_API_PORT:
