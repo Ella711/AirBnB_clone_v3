@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ module to run flask app """
 from api.v1.views import app_views
-from flask import Flask, make_response, jsonify, CORS
+from flask import Flask, make_response, jsonify
 from models import storage
 from os import getenv
+from flask_cors import CORS
 
 
 HBNB_API_HOST = getenv('HBNB_API_HOST')
