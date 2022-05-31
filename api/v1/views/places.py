@@ -12,7 +12,7 @@ from models.user import User
                  methods=['GET'], strict_slashes=False)
 def places_by_city(city_id=None):
     """ view all places by city """
-    city = storage.all(City, city_id)
+    city = storage.get(City, city_id)
     if not city:
         abort(404)
     places_list = []
