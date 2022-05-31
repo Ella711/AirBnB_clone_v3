@@ -45,10 +45,10 @@ def post_users():
     requested_json = request.get_json()
     if not requested_json:
         abort(400, description="Not a JSON")
-    if "name" not in requested_json:
-        abort(400, description="Missing name")
     if "email" not in requested_json:
         abort(400, description="Missing email")
+    if "password" not in requested_json:
+        abort(400, description="Missing password")
     new_user = User(**requested_json)
     new_user.save()
     return make_response(jsonify(new_user.to_dict()), 201)
