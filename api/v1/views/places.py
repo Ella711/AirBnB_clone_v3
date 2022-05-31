@@ -12,11 +12,11 @@ from models.user import User
                  methods=['GET'], strict_slashes=False)
 def places_by_city(city_id=None):
     """ view all places by city """
-    cities = storage.all(City, city_id)
-    if not cities:
+    city = storage.all(City, city_id)
+    if not city:
         abort(404)
     places_list = []
-    all_places = cities.places
+    all_places = city.places
     for place in all_places:
         places_list.append(place.to_dict())
     return jsonify(places_list)
