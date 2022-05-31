@@ -47,6 +47,8 @@ def post_users():
         abort(400, description="Not a JSON")
     if "name" not in requested_json:
         abort(400, description="Missing name")
+    if "email" not in requested_json:
+        abort(400, description="Missing email")
     new_user = User(**requested_json)
     new_user.save()
     return make_response(jsonify(new_user.to_dict()), 201)
