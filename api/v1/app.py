@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ module to run flask app """
 from api.v1.views import app_views
-from flask import Flask, make_response, jsonify
+from flask import Flask, make_response, jsonify, CORS
 from models import storage
 from os import getenv
+
 
 HBNB_API_HOST = getenv('HBNB_API_HOST')
 HBNB_API_PORT = getenv('HBNB_API_PORT')
@@ -11,6 +12,7 @@ HBNB_API_PORT = getenv('HBNB_API_PORT')
 app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
+CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
 
 
 def port_host(HBNB_API_HOST, HBNB_API_PORT):
